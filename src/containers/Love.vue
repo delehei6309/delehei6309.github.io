@@ -275,8 +275,10 @@
             },
             next8(){
                 if(this.value8){
-                    Toast('不要在还没选择的时候就点提交！');
-                    window.location.href = '/textPraticle';
+                    Toast('提交成功，请截图发给作者！');
+                    setTimeout(()=>{
+                        window.location.href = '/textPraticle';
+                    },3000);
                 }else{
                     Toast('不要在还没选择的时候就点提交！');
                 }
