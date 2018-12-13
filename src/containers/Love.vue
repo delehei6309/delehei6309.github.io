@@ -11,9 +11,14 @@
     	</div>
     	<div flex="dir:top main:justify" class="love-item love-item2">
     		<p>为了确定是您本人操作，我们需要对您身份进行验证（出生年月日）</p>
-    		<div class="input">
-    			<input type="text" placeholder="示例:1992-01-10" v-model="date">
-    		</div>
+    		<div flex="dir:top cross:center">
+                <div class="photo">
+                    <img src="../images/photo.jpg" alt="">
+                </div>
+                <div class="input">
+                    <input type="text" placeholder="示例:1992-01-10" v-model="date">
+                </div>      
+            </div>
     		<div flex="main:center" class="btns">
 	    		<a href="javascript:;" @click="sureShe">确认身份</a>
 	    	</div>
@@ -182,7 +187,8 @@
             }
         },
         components: {},
-        created(){},
+        created(){
+        },
         computed: {},
         mounted() {
             this.audioPlay();
@@ -269,7 +275,8 @@
             },
             next8(){
                 if(this.value8){
-                    window.location.href = 'https://es2049.studio/work-show/textPraticle/';
+                    Toast('不要在还没选择的时候就点提交！');
+                    window.location.href = '/textPraticle';
                 }else{
                     Toast('不要在还没选择的时候就点提交！');
                 }
