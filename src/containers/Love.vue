@@ -274,7 +274,6 @@
                 }
             },
             next8(){
-                alert(this.value8)
                 if(this.value8){
                     Toast('提交成功，请截图发给作者！');
                     setTimeout(()=>{
