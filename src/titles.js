@@ -3,6 +3,6 @@
  */
 const titles = {
 	'index': '',
-
+	'love': 'love for u'
 };
 module.exports = titles;
