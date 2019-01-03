@@ -3,6 +3,7 @@
  */
 const titles = {
 	'index': '',
-	'love': 'love for u'
+	'love': 'love for u',
+	'dialogue': '新消息'
 };
 module.exports = titles;
