@@ -21,7 +21,7 @@
         data(){
             return {
                 musicSrc:'../static/music.mp3',
-                verse:'落花有意随流水，流水无心恋落花。我本将心向明月，奈何明月照沟渠。',
+                verse:'hello word',
                 textItems:[],
                 count:0
             }
