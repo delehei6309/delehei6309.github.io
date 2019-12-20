@@ -1,0 +1,31 @@
+html,body{
+	overflow:hidden;
+}
+.yueyue{
+	height: 100%;
+    font-size: 1.2rem;
+    overflow-y: auto;
+	.music{
+		display: none;
+	}
+	.yueyue-content{
+		min-height:100%;
+		p{
+			line-height: 2em;
+    		letter-spacing: .45em;
+    		color: green;
+		    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(red), to(rgba(0,0,0,1)));
+		    -webkit-background-clip: text;
+		    -webkit-text-fill-color: transparent;
+			span{
+				opacity: 0;
+				transition: all .5s;
+				
+				&.show{
+					opacity: 1;
+					text-shadow: 0 0 6px tomato;
+				}
+			}
+		}
+	}
+}
