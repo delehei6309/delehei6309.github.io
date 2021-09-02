@@ -12,34 +12,40 @@
 <body >
     <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2/dist/fingerprint2.min.js"></script>
     <script>
-        function createFingerprint(){
+        function createFingerprint(call){
             // 选择哪些信息做为浏览器指纹生成的依据
             var options = {
                 fonts: {
-                extendedJsFonts: true,
+                    extendedJsFonts: true,
                 },
-                excludes: {
-                audio: true,
-                userAgent: true,
-                enumerateDevices: true,
-                touchSupport: true,
+                    excludes: {
+                    audio: true,
+                    userAgent: true,
+                    enumerateDevices: true,
+                    touchSupport: true,
                 }
             }
             // 浏览器指纹
-            var fingerprint = Fingerprint2.get(options, (components) => {
-                const values = components.map(component => component.value); // 配置的值的数组
-                const murmur = Fingerprint2.x64hash128(values.join(''), 31); // 生成浏览器指纹
-                alert(murmur)
+            var fingerprint = Fingerprint2.get(options, function(components){
+                var values = components.map(function(component){
+                    return component.value
+                }); // 配置的值的数组
+                var murmur = Fingerprint2.x64hash128(values.join(''), 31); // 生成浏览器指纹
+                call(murmur)
             })
         }
         
        if (window.requestIdleCallback) {
-          requestIdleCallback(() => {
-            createFingerprint();
+          requestIdleCallback(function(){
+              createFingerprint(function(res){
+                  alert(res)
+              })
           });
         } else {
           setTimeout(() => {
-            createFingerprint();
+            createFingerprint(function(res){
+                  alert(res)
+             })
           }, 500);
         }
     </script>
