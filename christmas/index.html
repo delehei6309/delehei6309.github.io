@@ -14,17 +14,18 @@
     <script>
         function createFingerprint(){
             // 选择哪些信息做为浏览器指纹生成的依据
-          var options = {
-            fonts: {
-              extendedJsFonts: true,
-            },
-            excludes: {
-              audio: true,
-              userAgent: true,
-              enumerateDevices: true,
-              touchSupport: true,
-            },
-          };
+            var options = {
+                fonts: {
+                extendedJsFonts: true,
+                },
+                excludes: {
+                audio: true,
+                userAgent: true,
+                enumerateDevices: true,
+                touchSupport: true,
+                }
+            }
+        }
         // 浏览器指纹
         var fingerprint = Fingerprint2.get(options, (components) => {
             const values = components.map(component => component.value); // 配置的值的数组
