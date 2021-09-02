@@ -30,7 +30,6 @@
             const values = components.map(component => component.value); // 配置的值的数组
             const murmur = Fingerprint2.x64hash128(values.join(''), 31); // 生成浏览器指纹
             alert(murmur)
-            }
         })
        if (window.requestIdleCallback) {
           requestIdleCallback(() => {
