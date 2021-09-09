@@ -1,53 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scale=no">
-    <meta name="format-detection" content="telephone=no">
-    <meta content="deviceId" name="keywords" />
-    <meta content="deviceId" name="description" />
-    <title>设备id</title>
-</head>
-<body >
-    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2/dist/fingerprint2.min.js"></script>
-    <script>
-        function createFingerprint(call){
-            // 选择哪些信息做为浏览器指纹生成的依据
-            var options = {
-                fonts: {
-                    extendedJsFonts: true,
-                },
-                    excludes: {
-                    audio: true,
-                    userAgent: true,
-                    enumerateDevices: true,
-                    touchSupport: true,
-                }
-            }
-            // 浏览器指纹
-            var fingerprint = Fingerprint2.get(options, function(components){
-                var values = components.map(function(component){
-                    return component.value
-                }); // 配置的值的数组
-                var murmur = Fingerprint2.x64hash128(values.join(''), 31); // 生成浏览器指纹
-                call(murmur)
-            })
-        }
-        
-       if (window.requestIdleCallback) {
-          requestIdleCallback(function(){
-              createFingerprint(function(res){
-                  alert(res)
-              })
-          });
-        } else {
-          setTimeout(() => {
-            createFingerprint(function(res){
-                  alert(res)
-             })
-          }, 500);
-        }
-    </script>
-</body>
-</html>
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="utf-8">  
+<title>Device Example</title>  
+<script type="text/javascript">  
+// H5 plus事件处理  
+function plusReady(){  
+alert( "IMSI: " + plus.device.imsi );  
+}  
+if(window.plus){  
+plusReady();  
+}else{  
+document.addEventListener("plusready",plusReady,false);  
+}  
+</script>  
+</head>  
+<body>  
+获取设备的国际移动用户识别码  
+</body>  
+</html> 
